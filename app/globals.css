@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap&subset=latin,cyrillic');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --arrie-bg: #0b0b0c;
+  --arrie-surface: #111113;
+  --arrie-elevated: #161518;
+  --arrie-amber: #d6a14a;
+  --arrie-amber-glow: #f4d28c;
+  --arrie-graphite: #5e6b88;
+  --arrie-text-bright: #faf6ef;
+  --arrie-text: #e8e2d6;
+  --arrie-text-muted: rgba(220, 215, 205, 0.72);
+  --arrie-text-faint: rgba(190, 185, 175, 0.52);
+  --arrie-text-eyebrow: rgba(244, 210, 140, 0.88);
+  --arrie-border-light: rgba(255, 255, 255, 0.16);
+  --arrie-border-warm: rgba(214, 161, 74, 0.22);
+  --arrie-panel: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 248, 240, 0.1) 45%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  --arrie-panel-inner: rgba(255, 255, 255, 0.08);
+  --arrie-glow-soft: 0 8px 48px rgba(0, 0, 0, 0.28), 0 0 100px rgba(214, 161, 74, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--arrie-bg);
+  color: var(--arrie-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(244, 210, 140, 0.35);
+  color: var(--arrie-text-bright);
+}
+
+/* ========== LUMINOUS SURFACES ========== */
+.arrie-panel {
+  background: var(--arrie-panel);
+  border: 1px solid var(--arrie-border-light);
+  box-shadow: var(--arrie-glow-soft);
+  backdrop-filter: blur(22px);
+}
+
+.arrie-panel-inner {
+  background: var(--arrie-panel-inner);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.arrie-eyebrow {
+  color: var(--arrie-text-eyebrow);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.arrie-text-muted {
+  color: var(--arrie-text-muted);
+}
+
+.arrie-text-faint {
+  color: var(--arrie-text-faint);
+}
+
+.arrie-heading {
+  color: var(--arrie-text-bright);
+}
+
+.glow {
+  box-shadow: var(--arrie-glow-soft);
+}
+
+.glow-luminous {
+  box-shadow:
+    0 12px 64px rgba(0, 0, 0, 0.32),
+    0 0 120px rgba(244, 210, 140, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 4px rgba(244, 210, 140, 0.3); }
+  50% { opacity: 1; box-shadow: 0 0 12px rgba(244, 210, 140, 0.65); }
+}
+
+@keyframes signal-wave {
+  0% { transform: scale(1); opacity: 0.08; }
+  50% { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 0.08; }
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, -35px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-35px, 45px); }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.14; }
+  50% { opacity: 0.22; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 3s ease-in-out infinite;
+}
+
+.animate-float-1 {
+  animation: float1 24s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float2 28s ease-in-out infinite;
+}
+
+.animate-grid-pulse {
+  animation: grid-pulse 14s ease-in-out infinite;
+}
+
+/* ========== HYBRID CONTRAST — brighten UI surfaces, not void ========== */
+main [class*='border-white/10'] {
+  border-color: var(--arrie-border-light) !important;
+}
+
+main [class*='bg-white/[0.03]'],
+main [class*='bg-white/[0.02]'] {
+  background: var(--arrie-panel) !important;
+  border-color: var(--arrie-border-light) !important;
+  box-shadow: var(--arrie-glow-soft) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+main [class*='hover:bg-white/[0.05]']:hover {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 248, 240, 0.12) 100%
+  ) !important;
+}
+
+main [class*='bg-black/30'],
+main [class*='bg-black/40'],
+main [class*='bg-black/60'],
+main [class*='bg-black/70'] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+main .text-white\/40,
+main .text-white\/35 {
+  color: var(--arrie-text-faint) !important;
+}
+
+main .text-white\/60 {
+  color: var(--arrie-text-muted) !important;
+}
+
+main .text-white\/70,
+main .text-white\/75 {
+  color: var(--arrie-text) !important;
+}
+
+main h1,
+main h2,
+main h3 {
+  color: var(--arrie-text-bright);
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 210, 140, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: var(--arrie-bg);
+}
+
+/* ========== LIGHT MODE ========== */
+.light-mode,
+.light-mode * {
+  color-scheme: light;
+}
+
+.light-mode {
+  background: #f7f7f5 !important;
+}
+
+.light-mode body,
+.light-mode main,
+.light-mode section {
+  background: #f7f7f5 !important;
+  color: #111111 !important;
+}
+
+.light-mode [class*='bg-arrie-bg'],
+.light-mode [class*='bg-[#0B0B0C]'],
+.light-mode [class*='bg-[#050505]'],
+.light-mode [class*='bg-black'] {
+  background: #f7f7f5 !important;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode p,
+.light-mode div,
+.light-mode span,
+.light-mode a,
+.light-mode button {
+  color: #111111;
+}
+
+.light-mode [class*='text-white/'] {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.light-mode [class*='border-white/10'] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode [class*='bg-white/[0.03]'],
+.light-mode [class*='bg-black/30'],
+.light-mode [class*='bg-black/40'] {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-mode .glow,
+.light-mode .glow-luminous {
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-mode header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode button[class*='bg-white'] {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+.light-mode ::selection {
+  background: rgba(0, 0, 0, 0.15);
+}

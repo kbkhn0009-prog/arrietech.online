@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arrietech.ru/sitemap.xml
+Sitemap: https://arrietech.online/sitemap.xml

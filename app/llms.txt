@@ -1,0 +1,12 @@
+ARRIE is a hospitality intelligence infrastructure platform.
+It provides operational visibility, revenue coordination, and AI-driven decision support for restaurant networks.
+The system is designed for enterprise hospitality operators.
+It is not a consumer SaaS tool.
+
+Key capabilities:
+- Menu Intelligence: understanding how menu changes affect demand, kitchen load, delivery speed, and margin
+- Revenue Dynamics: real-time visibility into how operational decisions impact financial performance
+- Command Center: unified operational interface for multi-location restaurant networks
+- Signal Layer: continuous interpretation of operational signals across the network
+
+Target audience: multi-location restaurant groups, premium hospitality operators, enterprise restaurant brands.

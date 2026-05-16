@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "ARRIE — The Intelligence Layer Behind Autonomous Hospitality",
+    "description": "ARRIE helps restaurant networks detect operational risks, coordinate decisions faster, and protect revenue in real time.",
+    "ogTitle": "ARRIE — Autonomous Hospitality Intelligence",
+    "ogDescription": "The next generation of restaurant operations starts here."
+  },
+  "nav": {
+    "platform": "Platform",
+    "useCases": "Use Cases",
+    "enterprise": "Enterprise",
+    "vision": "Vision",
+    "earlyAccess": "Early Access"
+  },
+  "hero": {
+    "eyebrow": "Autonomous Revenue & Reasoning Intelligence Ecosystem",
+    "headline": "The Intelligence Layer Behind Autonomous Hospitality",
+    "subheadline": "ARRIE helps restaurant networks detect operational risks, coordinate decisions faster, and protect revenue in real time.",
+    "ctaEarly": "Join Early Access",
+    "ctaEnterprise": "Enterprise Inquiry",
+    "ctaPartner": "Become a Partner"
+  },
+  "industry": {
+    "eyebrow": "The Industry Is Breaking",
+    "headline": "Modern restaurant operations were never designed for this level of complexity.",
+    "painPoints": [
+      { "title": "Fragmented Systems", "desc": "POS, delivery, reservations, inventory — all disconnected." },
+      { "title": "Delayed Response", "desc": "Problems are discovered after revenue damage already happened." },
+      { "title": "Operational Blind Spots", "desc": "No unified visibility across locations and channels." },
+      { "title": "Margin Pressure", "desc": "Rising labor costs, food inflation, delivery commissions." },
+      { "title": "Manual Coordination", "desc": "Owners forced to monitor everything and react constantly." },
+      { "title": "Reactive Management", "desc": "Decisions made too late, manually, under pressure." }
+    ]
+  },
+  "intelligence": {
+    "eyebrow": "Data Is Not Intelligence",
+    "headline": "Restaurants generate data. Few generate intelligence.",
+    "body": "Most systems collect information. Very few help operators understand what requires attention now. ARRIE continuously interprets operational signals across locations, transforming fragmented data into coordinated action."
+  },
+  "capabilities": {
+    "eyebrow": "Operational Intelligence Layer",
+    "headline": "What ARRIE enables across your network",
+    "items": [
+      { "title": "Operational Awareness", "desc": "Real-time pulse of every location, unified." },
+      { "title": "Revenue Visibility", "desc": "Detect margin threats before they escalate." },
+      { "title": "Predictive Alerts", "desc": "Know what will happen, not just what happened." },
+      { "title": "Coordinated Response", "desc": "Align teams across locations instantly." },
+      { "title": "Guest Experience Monitoring", "desc": "Catch experience degradation early." },
+      { "title": "Location Oversight", "desc": "Enterprise visibility without enterprise complexity." },
+      { "title": "Incident Visibility", "desc": "See critical deviations as they emerge." },
+      { "title": "Real-Time Pulse", "desc": "Live operational heartbeat of your network." }
+    ]
+  },
+  "commandCenter": {
+    "eyebrow": "Live Command Center",
+    "headline": "Your network, visible. Your decisions, accelerated.",
+    "body": "A new kind of operational interface — designed for executives who need clarity, not clutter. Revenue pulse, live alerts, predictive risk notifications, and coordination streams in one unified view."
+  },
+  "networks": {
+    "eyebrow": "Built for Restaurant Networks",
+    "headline": "Designed for scale. Architected for complexity.",
+    "body": "Whether you operate 5 locations or 500, ARRIE provides the intelligence infrastructure to manage complexity without adding overhead.",
+    "audiences": [
+      "Multi-location restaurant groups",
+      "Premium hospitality operators",
+      "Enterprise restaurant brands",
+      "Scaling operations"
+    ]
+  },
+  "vision": {
+    "eyebrow": "Autonomous Hospitality",
+    "headline": "The future of hospitality is not more dashboards.",
+    "body": "It is operational intelligence that helps businesses respond faster, coordinate better, and protect revenue continuously. ARRIE is building the infrastructure for that future."
+  },
+  "finalCta": {
+    "headline": "The next generation of restaurant operations starts here.",
+    "ctaEarly": "Join Early Access",
+    "ctaEnterprise": "Enterprise Inquiry",
+    "ctaPartner": "Become a Partner"
+  },
+  "footer": {
+    "tagline": "Where Revenue Becomes Autonomous",
+    "copyright": "© 2026 ARRIE. All rights reserved.",
+    "links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
+  }
+}
