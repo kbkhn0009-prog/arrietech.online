@@ -1,0 +1,20 @@
+version: 1.0
+service: web
+runtime: node
+build:
+  command: npm ci && npm run build
+start:
+  command: npm start
+port: 80
+env:
+  NODE_ENV: production
+  PORT: 80
+  TELEGRAM_BOT_TOKEN: your_telegram_bot_token
+  TELEGRAM_CHAT_ID: your_telegram_chat_id
+  LEAD_EMAIL: arrietech.ru@gmail.com
+  RESEND_API_KEY: re_xxxxxxxx
+  RESEND_FROM: "ARRIE <onboarding@resend.dev>"
+  NEXT_PUBLIC_CF_BEACON_TOKEN: your_cf_beacon_token
+  # Optional: analytics event store
+  # SUPABASE_URL: https://xxx.supabase.co
+  # SUPABASE_SERVICE_ROLE_KEY: your_service_role_key
