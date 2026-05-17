@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import { isArrieEventName, type ArrieEventPayload } from '@/lib/analytics/events'
 import { persistEvent, persistToSupabase } from '@/lib/analytics/event-store'
 
-export const runtime = 'nodejs'
-
 export async function POST(request: Request) {
   let body: ArrieEventPayload
   try {

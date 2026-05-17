@@ -1,5 +1,3 @@
-import { appendFile, mkdir } from 'fs/promises'
-import path from 'path'
 import type { ArrieEventPayload } from './events'
 
 export type StoredEvent = ArrieEventPayload & {
@@ -8,15 +6,16 @@ export type StoredEvent = ArrieEventPayload & {
   userAgent?: string
 }
 
-const DEV_LOG = path.join(process.cwd(), 'data', 'analytics-events.jsonl')
-
 export async function persistEvent(record: StoredEvent) {
   if (process.env.NODE_ENV === 'development') {
     try {
-      await mkdir(path.dirname(DEV_LOG), { recursive: true })
-      await appendFile(DEV_LOG, `${JSON.stringify(record)}\n`, 'utf8')
+      const { appendFile, mkdir } = await import('fs/promises')
+      const { join, dirname } = await import('path')
+      const devLog = join(process.cwd(), 'data', 'analytics-events.jsonl')
+      await mkdir(dirname(devLog), { recursive: true })
+      await appendFile(devLog, `${JSON.stringify(record)}\n`, 'utf8')
     } catch {
-      /* non-fatal */
+      /* non-fatal; fs unavailable on Edge */
     }
   }
 

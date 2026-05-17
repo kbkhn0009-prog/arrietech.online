@@ -1,5 +1,3 @@
-import nodemailer from 'nodemailer'
-
 type LeadEmailPayload = {
   requestType: string
   restaurant: string
@@ -10,6 +8,7 @@ type LeadEmailPayload = {
   comment: string
 }
 
+/** SMTP via nodemailer — requires Node APIs; may fail on pure Edge without nodejs_compat. */
 export async function sendLeadEmail(payload: LeadEmailPayload) {
   const host = process.env.SMTP_HOST
   const port = Number(process.env.SMTP_PORT || 587)
@@ -21,7 +20,8 @@ export async function sendLeadEmail(payload: LeadEmailPayload) {
     return { sent: false, reason: 'smtp_not_configured' as const }
   }
 
-  const transporter = nodemailer.createTransport({
+  const nodemailer = await import('nodemailer')
+  const transporter = nodemailer.default.createTransport({
     host,
     port,
     secure: port === 465,
