@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { sendLeadEmail } from '@/lib/email/send-lead-email'
 
+export const runtime = 'edge'
+
 type LeadPayload = {
   requestType?: 'access' | 'implementation'
   restaurant?: string
