@@ -8,27 +8,8 @@ type LeadEmailPayload = {
   comment: string
 }
 
-/** SMTP via nodemailer — requires Node APIs; may fail on pure Edge without nodejs_compat. */
-export async function sendLeadEmail(payload: LeadEmailPayload) {
-  const host = process.env.SMTP_HOST
-  const port = Number(process.env.SMTP_PORT || 587)
-  const user = process.env.SMTP_USER
-  const pass = process.env.SMTP_PASS
-  const to = process.env.LEAD_EMAIL || 'arrietech.ru@gmail.com'
-
-  if (!host || !user || !pass) {
-    return { sent: false, reason: 'smtp_not_configured' as const }
-  }
-
-  const nodemailer = await import('nodemailer')
-  const transporter = nodemailer.default.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-  })
-
-  const text = [
+function buildLeadEmailText(payload: LeadEmailPayload) {
+  return [
     'Новая заявка ARRIE',
     '',
     `Тип: ${payload.requestType}`,
@@ -41,13 +22,45 @@ export async function sendLeadEmail(payload: LeadEmailPayload) {
     '',
     `Время: ${new Date().toLocaleString('ru-RU', { hour12: false })}`,
   ].join('\n')
+}
 
-  await transporter.sendMail({
-    from: process.env.SMTP_FROM || `ARRIE <${user}>`,
-    to,
-    subject: `ARRIE · ${payload.requestType}`,
-    text,
+/** Edge-safe email via Resend HTTP API (Cloudflare Pages / Edge runtime). */
+async function sendViaResend(payload: LeadEmailPayload, text: string) {
+  const apiKey = process.env.RESEND_API_KEY
+  const to = process.env.LEAD_EMAIL || 'arrietech.ru@gmail.com'
+  const from = process.env.RESEND_FROM || process.env.SMTP_FROM
+
+  if (!apiKey || !from) {
+    return { sent: false as const, reason: 'resend_not_configured' as const }
+  }
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: [to],
+      subject: `ARRIE · ${payload.requestType}`,
+      text,
+    }),
   })
 
+  if (!response.ok) {
+    const details = await response.text()
+    throw new Error(`Resend failed: ${response.status} ${details}`)
+  }
+
   return { sent: true as const }
+}
+
+/**
+ * Sends lead notification email. Uses Resend (fetch) — compatible with Edge / Cloudflare.
+ * SMTP/nodemailer is not used (Node-only modules break Edge bundles).
+ */
+export async function sendLeadEmail(payload: LeadEmailPayload) {
+  const text = buildLeadEmailText(payload)
+  return sendViaResend(payload, text)
 }
