@@ -30,7 +30,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -194,70 +194,6 @@ main h3 {
   background: var(--arrie-bg);
 }
 
-/* ========== LIGHT MODE ========== */
-.light-mode,
-.light-mode * {
-  color-scheme: light;
-}
-
-.light-mode {
-  background: #f7f7f5 !important;
-}
-
-.light-mode body,
-.light-mode main,
-.light-mode section {
-  background: #f7f7f5 !important;
-  color: #111111 !important;
-}
-
-.light-mode [class*='bg-arrie-bg'],
-.light-mode [class*='bg-[#0B0B0C]'],
-.light-mode [class*='bg-[#050505]'],
-.light-mode [class*='bg-black'] {
-  background: #f7f7f5 !important;
-}
-
-.light-mode h1,
-.light-mode h2,
-.light-mode h3,
-.light-mode p,
-.light-mode div,
-.light-mode span,
-.light-mode a,
-.light-mode button {
-  color: #111111;
-}
-
-.light-mode [class*='text-white/'] {
-  color: rgba(0, 0, 0, 0.6) !important;
-}
-
-.light-mode [class*='border-white/10'] {
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
-
-.light-mode [class*='bg-white/[0.03]'],
-.light-mode [class*='bg-black/30'],
-.light-mode [class*='bg-black/40'] {
-  background: rgba(0, 0, 0, 0.04) !important;
-}
-
-.light-mode .glow,
-.light-mode .glow-luminous {
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.06) !important;
-}
-
-.light-mode header {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
-}
-
-.light-mode button[class*='bg-white'] {
-  background: #111111 !important;
-  color: #ffffff !important;
-}
-
-.light-mode ::selection {
-  background: rgba(0, 0, 0, 0.15);
+html {
+  color-scheme: dark;
 }

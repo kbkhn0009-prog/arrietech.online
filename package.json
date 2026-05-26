@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint",
-  "pages:build": "npx @cloudflare/next-on-pages",
-  "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
-  "preview": "npm run pages:build && npm run pages:dev",
-  "deploy": "npm run pages:build && npx wrangler pages deploy --project-name=arrie-nextjs --commit-dirty=true"
-},
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "cf:build": "npx @cloudflare/next-on-pages",
+    "cf:deploy": "npx wrangler deploy",
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "preview": "npm run pages:build && npm run pages:dev",
+    "deploy": "npm run cf:build && npm run cf:deploy"
+  },
   "dependencies": {
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",

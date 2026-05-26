@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { CloudflareAnalytics } from '@/components/analytics/cloudflare-analytics'
 import { I18nProvider } from '@/lib/i18n'
 import { PRIMARY_SITE_URL, SECONDARY_SITE_URL } from '@/lib/site-config'
-import { AdaptiveLightTheme } from '@/components/adaptive-light-theme'
 import { ImmersiveScrollEngine } from '@/components/immersive-scroll-engine'
 import { LeadCaptureProvider } from '@/components/lead-capture-provider'
 import './globals.css'
@@ -113,22 +112,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru" className="dark" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var stored = localStorage.getItem('theme');
-                  var isLight = stored ? stored === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
-                  if (isLight) document.documentElement.classList.add('light-mode');
-                  else document.documentElement.classList.remove('light-mode');
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -146,7 +131,6 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <CloudflareAnalytics />
         <I18nProvider>
-          <AdaptiveLightTheme />
           <ImmersiveScrollEngine />
           <LeadCaptureProvider>{children}</LeadCaptureProvider>
         </I18nProvider>

@@ -5,7 +5,6 @@ import { useCallback, useState } from 'react'
 import { useI18n } from '@/lib/i18n'
 import { scrollToTop } from '@/lib/scroll'
 import { LanguageToggle } from './language-toggle'
-import { ThemeToggle } from './theme-toggle'
 import { useLeadCapture } from './lead-capture-provider'
 import { SystemStatusBar } from './system-status-bar'
 
@@ -85,7 +84,6 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-2 sm:gap-3 shrink-0">
             <LanguageToggle />
-            <ThemeToggle />
             <button
               type="button"
               onClick={() => openLeadModal('access')}
@@ -153,9 +151,8 @@ export function Navbar() {
             >
               {t('nav.earlyAccess') as string}
             </button>
-            <div className="pt-4 border-t border-white/10 flex gap-4">
+            <div className="pt-4 border-t border-white/10">
               <LanguageToggle />
-              <ThemeToggle />
             </div>
           </div>
         </>

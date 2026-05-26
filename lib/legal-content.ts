@@ -74,7 +74,7 @@ export const privacyContent: Record<'ru' | 'en', LegalPageContent> = {
       {
         title: '7. Cookies и аналитика',
         paragraphs: [
-          'Сайт может использовать cookies и аналогичные технологии для сохранения языка интерфейса, темы оформления и сбора обезличенной статистики посещений. Вы можете ограничить cookies в настройках браузера; при этом часть функций сайта может работать ограниченно.',
+          'Сайт может использовать cookies и аналогичные технологии для сохранения языка интерфейса и сбора обезличенной статистики посещений. Вы можете ограничить cookies в настройках браузера; при этом часть функций сайта может работать ограниченно.',
         ],
       },
       {
@@ -162,7 +162,7 @@ export const privacyContent: Record<'ru' | 'en', LegalPageContent> = {
       {
         title: '7. Cookies and analytics',
         paragraphs: [
-          'The site may use cookies to store language and theme preferences and to collect anonymized visit statistics. You can restrict cookies in your browser; some features may then be limited.',
+          'The site may use cookies to store language preferences and to collect anonymized visit statistics. You can restrict cookies in your browser; some features may then be limited.',
         ],
       },
       {
